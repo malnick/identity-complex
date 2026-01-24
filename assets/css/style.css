@@ -30,10 +30,10 @@
   --color-border: rgba(147, 161, 161, 0.15);
   --color-border-hover: rgba(147, 161, 161, 0.3);
   
-  --color-text: var(--base2);
-  --color-text-muted: var(--base1);
-  --color-text-faint: var(--base0);
-  --color-text-bright: var(--base3);
+  --color-text: #ffffff;
+  --color-text-muted: var(--base2);
+  --color-text-faint: var(--base1);
+  --color-text-bright: #ffffff;
   
   --color-accent: var(--yellow);
   --color-accent-bright: #d4a000;
