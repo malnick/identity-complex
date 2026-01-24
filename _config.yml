@@ -1,0 +1,48 @@
+# Site settings
+title: Identity Complex
+description: "Exploring authentication, identity, and the boundaries of autonomous systems"
+author: Jeff Malnick
+email: ""
+baseurl: "" # subpath of your site, e.g. /blog
+url: "" # base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+# Pagination
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Sass
+sass:
+  style: compressed
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Jeff Malnick"

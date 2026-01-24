@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+      {% if page.categories.size > 0 %}
+      <span class="post-categories">
+        {% for category in page.categories %}
+        <span class="category">{{ category }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    {% if page.subtitle %}
+    <p class="post-subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <span class="author-label">Written by</span>
+      <span class="author-name" itemprop="name">{{ page.author | default: site.author }}</span>
+    </div>
+    
+    {% if page.previous or page.next %}
+    <nav class="post-navigation">
+      {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}" class="nav-prev">
+        <span class="nav-label">Previous</span>
+        <span class="nav-title">{{ page.previous.title | escape }}</span>
+      </a>
+      {% endif %}
+      {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}" class="nav-next">
+        <span class="nav-label">Next</span>
+        <span class="nav-title">{{ page.next.title | escape }}</span>
+      </a>
+      {% endif %}
+    </nav>
+    {% endif %}
+  </footer>
+</article>
