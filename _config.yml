@@ -3,8 +3,8 @@ title: Identity Complex
 description: "my soapbox"
 author: Jeff Malnick
 email: ""
-baseurl: "" # subpath of your site, e.g. /blog
-url: "" # base hostname & protocol for your site
+baseurl: "/identity-complex" # subpath of your site
+url: "https://malnick.github.io" # base hostname & protocol
 
 # Build settings
 markdown: kramdown
