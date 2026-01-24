@@ -23,17 +23,17 @@
   --cyan: #2aa198;
   --green: #859900;
   
-  /* Mapped colors */
+  /* Mapped colors - higher contrast */
   --color-bg: var(--base03);
   --color-bg-elevated: var(--base02);
   --color-bg-subtle: #03404d;
   --color-border: #0a4f5c;
   --color-border-subtle: var(--base02);
   
-  --color-text: var(--base0);
-  --color-text-muted: var(--base01);
-  --color-text-faint: var(--base00);
-  --color-text-bright: var(--base1);
+  --color-text: var(--base1);
+  --color-text-muted: var(--base0);
+  --color-text-faint: var(--base01);
+  --color-text-bright: var(--base2);
   
   --color-accent: var(--yellow);
   --color-accent-bright: #d4a000;
