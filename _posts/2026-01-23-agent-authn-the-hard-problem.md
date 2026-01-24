@@ -7,7 +7,7 @@ categories: [ai-security, identity]
 author: Jeff Malnick
 ---
 
-Most agent frameworks today rely on OAuth to let humans authorize agents to access applications on their behalf. This works largely because OAuth gives us a familiar, just-in-time browser flow where a human can make an explicit decision. It is a pragmatic choice. But as agents become more autonomous and less predictable, the lack of authentication for agents becomes the limiting factor in how secure modern systems can be.
+Most agent architectures today rely on authorizion to let agents access applications on a human's behalf. This works largely because OAuth gives us a familiar, just-in-time browser flow where a human can make an explicit decision. It is a pragmatic choice. But as agents become more autonomous and less predictable, the lack of authentication for agents becomes the limiting factor in how secure modern systems can be.
 
 AI agents change the landscape not because the idea of an agent is new, but because the logic that controls how an AI agent behaves is non-deterministic, and they are experienced as extensions of human capability. Chat interfaces paired with decision-making powerful enough to act on our behalf shift these systems closer to human actors than to structured programs with deterministic outputs. Delegation is a natural approach to first-line security.
 
