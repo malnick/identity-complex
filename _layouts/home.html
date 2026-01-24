@@ -15,7 +15,7 @@ layout: default
     
     <ul class="post-list">
       {% for post in site.posts %}
-      <li class="post-item" style="animation-delay: {{ forloop.index | times: 0.1 }}s">
+      <li class="post-item">
         <article class="post-preview">
           <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
             {{ post.date | date: "%b %d, %Y" }}
