@@ -13,8 +13,6 @@ AI agents change the landscape not because the idea of an agent is new, but beca
 
 You can see this most clearly in the security mechanisms we have built to control agents. MCP servers ship with OAuth as the primary layer for humans to authorize agents to access systems on their behalf. This choice is natural both structurally and as a user interface. The browser-based consent flow is something we already understand, and it gives humans a clear moment in the loop to approve access to confidential data or services.
 
-## The Limits of Authorization
-
 But authorization is designed to connect one application to another within strictly defined scopes. Authorization solves a usability problem around human-mediated trust between deterministic systems. Instead of manually configuring trust between Calendly and Google Calendar, OAuth authorization allows Calendly to ask Google for access, prompts the user to approve a set of scopes, and, with a single click, establishes trust on both sides. It is elegant when you consider the alternatives that came before it.
 
 This flow assumes a lot about the systems involved:
@@ -31,24 +29,18 @@ An AI agent is not a bounded client. Its behavior is not fixed at deploy time, a
 
 Authorization gives us a familiar control surface and keeps a human in the loop. But it also pushes us toward a model where trust is inferred rather than asserted, where identity is implied rather than authenticated, and limits fully autonomous behavior. In this model, the subject of access is still effectively the human. The agent is treated as a conduit, not as principal. Audit trails collapse back to the approving user, if you can bring all the audit logs from the various third party systems together in a comprehensible way. There is no stable, cryptographically rooted identity.
 
-## Authentication as Foundation
-
-Authentication can fill these gaps.
+**Authentication can fill these gaps.**
 
 Authentication gives us a way to treat agents as accountable entities rather than extensions of a human. With authentication, an agent can present an identity rooted in a trusted identity provider (or hardware), distinct from the human who created or authorized it. Access can then be granted based on who or what the agent is, not just what it has been allowed to access. This enables tighter, context-aware controls, and auditability that reflects the true actor in the system. It also allows trust to be established independently of a single authorization event, which matters when behavior is adaptive, long-lived, or requires fully autonomous execution.
 
 Without authentication, we will continue forcing adaptive, decision-making systems into security models built for static software. The result is not only weaker security, but a loss of accountability at the exact moment systems begin acting on our behalf.
 
-## Emerging Standards
+*Though not explicitly about solving AI agent security challenges*, the IETF and W3C have several projects that evolve existing frameworks, and are creating new ones that begin to address these gaps.
 
-Though not explicitly about solving AI agent security challenges, the IETF and W3C have several projects that evolve existing frameworks, and are creating new ones that begin to address these gaps.
-
-Within the IETF, efforts like **WIMSE** and **SPICE** are starting to address the gap between traditional workload identity and the realities of modern agent execution. WIMSE explores headless OIDC-based flows for machine identity, where authentication does not depend on an interactive human session. WIMSE is also compliant with SPIFFE, allowing builders to automate secure introduction of workloads with minimal friction. SPICE pushes further on how software can present verifiable identity in environments that are dynamic, distributed, and not fully controlled.
+Within the IETF, efforts like [WIMSE](https://datatracker.ietf.org/group/wimse/documents/) and [SPICE](https://datatracker.ietf.org/wg/spice/about/) are starting to address the gap between traditional workload identity and the realities of modern agent execution. WIMSE explores headless OIDC-based flows for machine identity, where authentication does not depend on an interactive human session. WIMSE is also compliant with SPIFFE, allowing builders to automate secure introduction of workloads with minimal friction. SPICE pushes further on how software can present verifiable identity in environments that are dynamic, distributed, and not fully controlled.
 
 These efforts will allow engineers to more easily build for a fully authenticated identity, rather than the delegated workflows common today. They assume that non-human actors need to enroll with identity providers, present cryptographic proof of who or what they are, and be treated as principals rather than extensions of a user.
 
-## Looking Ahead
-
-Looking further ahead, there is a future where **W3C Verifiable Credentials** are the unifying layer of identity for humans, agents, and machine workloads. In that world, humans and agents carry portable, cryptographically verifiable claims about their origin, capabilities, and operating constraints. Identity would no longer be tied exclusively to a single runtime, cloud provider, or authorization server. Instead, human and non-human actors could prove properties about themselves across environments, even when running on hardware or platforms outside of direct administrative control.
+Looking further ahead, there is a future where [W3C Verifiable Credentials](https://www.w3.org/TR/vc-overview/) are the unifying layer of identity for humans, agents, and machine workloads. In that world, humans and agents carry portable, cryptographically verifiable claims about their origin, capabilities, and operating constraints. Identity would no longer be tied exclusively to a single runtime, cloud provider, or authorization server. Instead, human and non-human actors could prove properties about themselves across environments, even when running on hardware or platforms outside of direct administrative control.
 
 Authorization cannot carry the weight of agent identity on its own. As agents become more autonomous, adaptive, and long-lived, authentication must become the first approach engineers reach for when building agentic systems. As engineers, we need to build toward a model where agent identity is explicit, attestable, and independent of a single authorization event. Ideally, I'm hoping this future also allows us to unify our approach to identity in a single framework, enabling a simplified, defragmented future for both engineers and end users.
