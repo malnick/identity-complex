@@ -13,4 +13,67 @@
 <!-- Feed -->
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
+<!-- Mermaid for diagrams -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ 
+    startOnLoad: false, 
+    theme: 'base',
+    themeVariables: {
+      // Solarized Dark - High Contrast
+      // Base colors
+      primaryColor: '#073642',        // base02 - dark bg
+      primaryTextColor: '#fdf6e3',    // base3 - lightest text
+      primaryBorderColor: '#93a1a1',  // base1 - light border
+      lineColor: '#93a1a1',           // base1
+      secondaryColor: '#002b36',      // base03 - darkest bg
+      tertiaryColor: '#073642',       // base02
+      
+      // Text
+      textColor: '#fdf6e3',           // base3 - maximum contrast
+      titleColor: '#fdf6e3',          // base3
+      
+      // Backgrounds
+      mainBkg: '#002b36',             // base03
+      nodeBorder: '#93a1a1',          // base1
+      clusterBkg: '#073642',          // base02
+      edgeLabelBackground: '#002b36', // base03
+      
+      // Sequence diagram specific
+      actorBkg: '#073642',            // base02
+      actorBorder: '#93a1a1',         // base1
+      actorTextColor: '#fdf6e3',      // base3
+      actorLineColor: '#839496',      // base0
+      signalColor: '#93a1a1',         // base1
+      signalTextColor: '#fdf6e3',     // base3
+      labelTextColor: '#fdf6e3',      // base3
+      loopTextColor: '#fdf6e3',       // base3
+      
+      // Notes - using Solarized yellow accent
+      noteTextColor: '#fdf6e3',       // base3
+      noteBkgColor: '#073642',        // base02
+      noteBorderColor: '#b58900',     // yellow accent
+      
+      // Activations
+      activationBorderColor: '#268bd2', // blue accent
+      activationBkgColor: '#073642',    // base02
+      
+      // Sequence numbers
+      sequenceNumberColor: '#002b36'    // base03 (dark on light bg)
+    }
+  });
+  
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Convert Jekyll code blocks to mermaid divs
+    document.querySelectorAll('pre code.language-mermaid').forEach((block) => {
+      const div = document.createElement('div');
+      div.className = 'mermaid';
+      div.textContent = block.textContent;
+      block.parentElement.replaceWith(div);
+    });
+    
+    await mermaid.run();
+  });
+</script>
+
 {% seo %}
