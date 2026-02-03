@@ -20,7 +20,10 @@ As AI agents become more prevalent and capable, the systems we build to secure t
 
 ## The Author
 
-I write about the hard problems in identity and security for autonomous systems. My work focuses on building authentication infrastructure that can adapt to a world where humans and AI agents operate as co-equal principals.
+I’m an engineer and engineering leader focused on identity, security, and distributed systems.
+
+**GitHub:** https://github.com/malnick  
+**LinkedIn:** <a href="https://www.linkedin.com/in/jeffmalnick/" target="_blank">https://www.linkedin.com/in/jeffmalnick/</a>
 
 ---
 
